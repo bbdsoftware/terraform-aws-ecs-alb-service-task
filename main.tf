@@ -419,7 +419,7 @@ resource "aws_ecs_service" "ignore_changes_task_definition" {
   }
 
   lifecycle {
-    ignore_changes = [task_definition]
+    ignore_changes = [task_definition, load_balancer, deployment_circuit_breaker]
   }
 }
 
@@ -509,7 +509,7 @@ resource "aws_ecs_service" "ignore_changes_task_definition_and_desired_count" {
   }
 
   lifecycle {
-    ignore_changes = [task_definition, desired_count]
+    ignore_changes = [task_definition, load_balancer, deployment_circuit_breaker, desired_count]
   }
 }
 
